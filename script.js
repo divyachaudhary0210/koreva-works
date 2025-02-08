@@ -1,15 +1,15 @@
-function showImage(imageSrc, description) {
-    document.getElementById("selected-image").src = imageSrc;
-    document.getElementById("image-description").innerText = description;
-    document.getElementById("selected-image-container").style.display = "block";
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("mode-btn");
+    const body = document.body;
 
-function toggleMode() {
-    document.body.classList.toggle("dark-mode");
-    let modeBtn = document.getElementById("mode-btn");
-    if (document.body.classList.contains("dark-mode")) {
-        modeBtn.innerText = "🌙 Dark Mode";
-    } else {
-        modeBtn.innerText = " Light Mode";
+    function updateIcon() {
+        toggleButton.innerHTML = body.classList.contains("dark-mode") ? "🌙" : "☀️";
     }
-}
+
+    toggleButton.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+        updateIcon();
+    });
+
+    updateIcon(); // Set correct icon on page load
+});

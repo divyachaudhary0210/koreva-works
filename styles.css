@@ -88,22 +88,25 @@ body {
     text-align: center;
 }
 
-/* Shrink Carousel for Mobile */
 @media screen and (max-width: 768px) {
     .carousel-container {
-        width: 60px; /* Very small width */
-        max-width: 70px;
-        margin-top: 400px;
+        width: 100%; /* Use percentage instead of fixed width */
+        max-width: 300px; /* Set a reasonable max-width */
+        margin: 20px auto; /* Center the carousel and adjust margin */
+    }
+    .carousel-inner {
+        width: 100%; /* Ensure inner container is full width */
     }
     .carousel-inner img {
-        width: 50%;
-        height: 10px; /* Reduced height to very small */
-        /* object-fit: cover; */
+        width: 100%; /* Make images full width of their container */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 200px; /* Set a maximum height */
+        object-fit: contain; /* Ensure the entire image is visible */
         border-radius: 10px;
     }
     .carousel-control-prev,
     .carousel-control-next {
-        width: 10%; /* Reduce button size */
+        width: 15%; /* Slightly larger than your original for better tap targets */
     }
 }
 
